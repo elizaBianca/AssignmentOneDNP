@@ -42,7 +42,11 @@ public class PostDao : IPostDao
 
    public async Task<Post> AddPostAsync(Post post)
    {
-      int largestId = fileContext.RedditForum.Posts.Max(t => t.Id);
+      int largestId = 0;
+      if (fileContext.RedditForum.Posts.Any())
+      {
+         largestId = fileContext.RedditForum.Posts.Max(t => t.Id);
+      }
       int nextId = largestId + 1;
       post.Id = nextId;
       fileContext.RedditForum.Posts.Add(post);

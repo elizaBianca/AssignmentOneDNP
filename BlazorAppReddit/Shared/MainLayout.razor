@@ -1,4 +1,5 @@
 ﻿@using BlazorAppReddit.Authentication
+@using Login
 @inherits LayoutComponentBase
 @inject IAuthService AuthService
 @inject NavigationManager NavigationManager
@@ -12,7 +13,10 @@
 
     <main>
         <div class="top-row px-4">
-            <RadzenButton Click=@(args => OnClick()) Text="Logout" ButtonStyle="ButtonStyle.Light" />
+            <LoginButtons />
+        <!-- the Logout button no longer need, as it was substituted by the login buttons above
+        <RadzenButton Click=@(args => OnClick()) Text="Logout" ButtonStyle="ButtonStyle.Light"/>
+        -->
         </div>
 
         <article class="content px-4">

@@ -2,7 +2,6 @@
 // this is the configuration of your project
 
 using BlazorAppReddit.Authentication;
-using BlazorAppReddit.Data;
 using Domain.DataAccessContracts;
 using FileData.DaoObjects;
 using FileData.DataAccess;
@@ -13,7 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<FileContext>();
 builder.Services.AddScoped<IRegisterDao, UserDao>();
 builder.Services.AddScoped<ILoginDao, UserDao>();
