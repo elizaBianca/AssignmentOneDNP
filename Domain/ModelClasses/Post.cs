@@ -21,4 +21,9 @@ public class Post
     {
         
     }
+
+    public override string ToString()
+    {
+        return $"Header: {Header}, body: {Body}, ownerId: {OwnerId}, id: {Id}, ";
+    }
 }

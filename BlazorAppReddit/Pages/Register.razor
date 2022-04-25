@@ -1,7 +1,7 @@
 ﻿@page "/register"
 @using Domain.ModelClasses
 @using Domain.DataAccessContracts
-@inject IRegisterDao registerDao
+@inject IUserDao userDao
 @inject NavigationManager NavigationManager
 
 <div class="col-xl-6 mx-auto p-3">
@@ -26,7 +26,7 @@
             Password = args.Password
         };
         
-        registerDao.AddUserAsync(user);
+        userDao.AddUserAsync(user);
         NavigationManager.NavigateTo("/login");
     }
 }

@@ -3,8 +3,7 @@
 
 using BlazorAppReddit.Authentication;
 using Domain.DataAccessContracts;
-using FileData.DaoObjects;
-using FileData.DataAccess;
+using HttpServices;
 using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,11 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<FileContext>();
-builder.Services.AddScoped<IRegisterDao, UserDao>();
-builder.Services.AddScoped<ILoginDao, UserDao>();
-builder.Services.AddScoped<IPostDao, PostDao>();
-builder.Services.AddScoped<IPostDao, PostDao>();
+builder.Services.AddScoped<IUserDao, UserHttpClient>();
+builder.Services.AddScoped<IPostDao, PostHttpClient>();
 builder.Services.AddScoped<AuthenticationStateProvider, SimpleAuthenticationStateProvider>();
 builder.Services.AddScoped<IAuthService, AuthServiceImplement>();
 

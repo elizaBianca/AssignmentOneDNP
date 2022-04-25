@@ -23,8 +23,10 @@
 @code {
 
     Post post = new Post();
+    
     private async Task OnSubmit()
     {
+        post.OwnerId = "1"; 
         var addPostAsync = await PostDao.AddPostAsync(post);
         NavigationManager.NavigateTo($"/viewpost/{addPostAsync.Id}");
     }

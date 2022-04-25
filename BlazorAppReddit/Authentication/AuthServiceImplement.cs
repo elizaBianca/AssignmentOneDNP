@@ -9,20 +9,20 @@ namespace BlazorAppReddit.Authentication;
 public class AuthServiceImplement : IAuthService
 {
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
-    private readonly ILoginDao userLoginDao;
+    private readonly IUserDao userDao;
     private readonly IJSRuntime jsRuntime;
    
 
-    public AuthServiceImplement(ILoginDao userLoginDao, IJSRuntime jsRuntime)
+    public AuthServiceImplement(IUserDao userDao, IJSRuntime jsRuntime)
     {
-        this.userLoginDao = userLoginDao;
+        this.userDao = userDao;
         this.jsRuntime = jsRuntime;
     }
     
     public async Task LoginAsync(User user) // change signature in interface
     {
         // use method from dao object to check that the user you get is in the file
-        if (userLoginDao.TryLogin(user))
+        if (await userDao.TryLogin(user))
         {
             ClaimsPrincipal principal = CreateClaimsPrincipal(user); // convert User object to ClaimsPrincipal
             OnAuthStateChanged.Invoke(principal);

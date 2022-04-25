@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppReddit", "BlazorAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileData", "FileData\FileData.csproj", "{927813F3-3F22-419A-AA4D-E3DFCF61C9E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicWithRestApi", "BusinessLogicWithRestApi\BusinessLogicWithRestApi.csproj", "{574F134E-1AF6-48A4-8884-E4C766489F99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpServices", "HttpServices\HttpServices.csproj", "{37C04AB1-C790-4DCC-ACE9-DD6F2A48B92B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{927813F3-3F22-419A-AA4D-E3DFCF61C9E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{927813F3-3F22-419A-AA4D-E3DFCF61C9E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{927813F3-3F22-419A-AA4D-E3DFCF61C9E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574F134E-1AF6-48A4-8884-E4C766489F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574F134E-1AF6-48A4-8884-E4C766489F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574F134E-1AF6-48A4-8884-E4C766489F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574F134E-1AF6-48A4-8884-E4C766489F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C04AB1-C790-4DCC-ACE9-DD6F2A48B92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C04AB1-C790-4DCC-ACE9-DD6F2A48B92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C04AB1-C790-4DCC-ACE9-DD6F2A48B92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C04AB1-C790-4DCC-ACE9-DD6F2A48B92B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

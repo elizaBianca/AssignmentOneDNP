@@ -5,7 +5,7 @@ using FileData.DataAccess;
 
 namespace FileData.DaoObjects;
 
-public class UserDao : ILoginDao, IRegisterDao
+public class UserDao : IUserDao
 {
     private FileContext fileContext;
 
@@ -15,17 +15,16 @@ public class UserDao : ILoginDao, IRegisterDao
     }
 
 
-    public bool TryLogin(User user)
+    public async Task<bool> TryLogin(User user)
     {
         User? userLogin = null;
         
         userLogin = fileContext.RedditForum.Users.FirstOrDefault(p =>
             p.UserName.Equals(user.UserName) && p.Password.Equals(user.Password));
 
+        return userLogin != null; // if doesn't find something matching will return that userLogin is null
+                                  // (so the method will return true or false)
 
-        return
-            userLogin !=
-            null; // if doesn't find something matching will return that userLogin is null (so the method will return true or false)
     }
 
     public async Task<User> AddUserAsync(User user)
@@ -43,6 +42,12 @@ public class UserDao : ILoginDao, IRegisterDao
         return user;
     }
 
+    public async Task<User> GetUserByUsername(string userName)
+    {
+        User? user = fileContext.RedditForum.Users.FirstOrDefault(u => u.UserName.Equals(userName));
+        if (user != null) return user;
+        return null;
+    }
 
     public async Task DeleteUserAsync(string userName)
     {
